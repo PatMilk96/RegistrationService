@@ -16,7 +16,6 @@ public class RegistrationController {
 
     @PostMapping("/confirm")
     public String confDetails(@RequestBody UserDetails userDetails){
-        String notification = notificationServiceClient.notification(userDetails);
-        return (String.format("Thanks %s, We got your details with the following email: %s", userDetails.getName(), userDetails.getEmail() + "\n" + notification));
+        return notificationServiceClient.notification(userDetails);
     }
 }
